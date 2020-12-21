@@ -8,9 +8,11 @@ import Header from './components/header/Header';
 import Home from './pages/home/Home';
 import AboutUs from './pages/aboutUs/AboutUs';
 import AllPlants from './pages/allPlants/AllPlants';
+import LanguageContextProvider from "./context/LanguageContextProvider";
 
 function App() {
   return (
+      <LanguageContextProvider>
     <Router>
         <Header />
         <Switch>
@@ -25,6 +27,7 @@ function App() {
           </Route>
         </Switch>
     </Router>
+        </LanguageContextProvider>
   );
 }
 

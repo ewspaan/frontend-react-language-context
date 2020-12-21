@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import writers from '../../assets/bob_betsy.jpg'
+import {LanguageContext} from "../../context/LanguageContextProvider";
 
 const content = {
   nl: {
@@ -13,13 +14,18 @@ const content = {
   },
 };
 
+
+
 function AboutUs() {
+    const {language} = useContext(LanguageContext);
+
   return (
-    <div className="page-container">
-      <h2>{content.nl.title}</h2>
-      <img src={writers} alt="Bob & Betsy"/>
-      <p>{content.nl.writers}</p>
-    </div>
+        <div className="page-container">
+            <h2>{content[language].title}</h2>
+            <img src={writers} alt="Bob & Betsy"/>
+            <p>{content[language].writers}</p>
+        </div>
+
   );
 }
 

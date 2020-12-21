@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {LanguageContext} from "../../context/LanguageContextProvider";
 
 const content = {
   nl: {
@@ -34,12 +35,13 @@ const content = {
 };
 
 function AllPlants() {
+  const {language} = useContext(LanguageContext);
   return (
     <div className="page-container">
-      <h2>{content.nl.title}</h2>
-      <p>{content.nl.text}</p>
+      <h2>{content[language].title}</h2>
+      <p>{content[language].text}</p>
       <ul>
-        {content.nl.plants.map((plant) => <li>{plant}</li>)}
+        {content[language].plants.map((plant) => <li key={plant}>{plant}</li>)}
       </ul>
     </div>
   );
